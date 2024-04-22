@@ -30,3 +30,13 @@ upload.onchange = () => {
     img.src = file.result as string;
   };
 };
+
+//apply filters to the image
+const applyFilters = () => {
+  const filterValue = `contrast(${contrast.value}%)
+    brightness(${brightness.value}%)
+    sepia(${sepia.value}%)
+    grayscale(${grayscale.value})
+    blur(${blurInput.value}px)`;
+  img.style.filter = filterValue;
+};
