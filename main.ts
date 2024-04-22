@@ -52,17 +52,21 @@ upload.onchange = () => {
 };
 
 //apply filters to the image
-const applyFilters = () => {
-  const filterValue = `contrast(${contrast.value}%)
+//attach event listeners to filter input elements
+const filters = document.querySelectorAll("ul li input");
+filters.forEach((filter) => {
+  filter.addEventListener("input", function () {
+    if (context) {
+      context.filter = `contrast(${contrast.value}%)
     brightness(${brightness.value}%)
     sepia(${sepia.value}%)
     grayscale(${grayscale.value})
     blur(${blurInput.value}px)`;
-  img.style.filter = filterValue;
-};
-
-//attach event listeners to filter input elements
-const filters = document.querySelectorAll("ul li input");
-filters.forEach((filter) => {
-  filter.addEventListener("input", applyFilters);
+      context?.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
+  });
 });
+
+save.onclick = () => {
+  save.href = canvas.toDataURL();
+};
