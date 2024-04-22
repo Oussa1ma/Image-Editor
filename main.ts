@@ -11,6 +11,16 @@ const img = document.getElementById("img") as HTMLImageElement;
 const undo = document.querySelector("span") as HTMLSpanElement;
 const imgBox = document.querySelector(".img-box") as HTMLDivElement;
 
+//reset filter values and elements
+const resetValue = () => {
+  img.style.filter = "none";
+  contrast.value = "100";
+  brightness.value = "100";
+  sepia.value = "0";
+  grayscale.value = "0";
+  blurInput.value = "0";
+};
+
 //hide the image box and buttons when loading the page
 window.onload = () => {
   save.style.display = "none";
@@ -20,6 +30,7 @@ window.onload = () => {
 
 //show the image box and buttons when choosing the image
 upload.onchange = () => {
+  resetValue();
   save.style.display = "block";
   imgBox.style.display = "block";
   undo.style.display = "block";
