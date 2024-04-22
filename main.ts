@@ -11,6 +11,9 @@ const img = document.getElementById("img") as HTMLImageElement;
 const undo = document.querySelector("span") as HTMLSpanElement;
 const imgBox = document.querySelector(".img-box") as HTMLDivElement;
 
+const canvas = document.getElementById("canvas") as HTMLCanvasElement;
+const context = canvas.getContext("2d");
+
 //reset filter values and elements
 const resetValue = () => {
   img.style.filter = "none";
@@ -39,6 +42,12 @@ upload.onchange = () => {
   file.readAsDataURL(upload.files![0]); //first file in the array (selected image)
   file.onload = () => {
     img.src = file.result as string;
+  };
+  img.onload = () => {
+    canvas.width = img.width;
+    canvas.height = img.height;
+    context?.drawImage(img, 0, 0, canvas.width, canvas.height);
+    img.style.display = "none";
   };
 };
 
