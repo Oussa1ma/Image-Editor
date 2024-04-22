@@ -40,3 +40,9 @@ const applyFilters = () => {
     blur(${blurInput.value}px)`;
   img.style.filter = filterValue;
 };
+
+//attach event listeners to filter input elements
+const filters = document.querySelectorAll("ul li input");
+filters.forEach((filter) => {
+  filter.addEventListener("input", applyFilters);
+});
