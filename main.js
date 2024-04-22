@@ -18,6 +18,12 @@ var resetValue = function () {
     sepia.value = "0";
     grayscale.value = "0";
     blurInput.value = "0";
+    // Clear the canvas and redraw the original image with no filters
+    if (context) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.filter = "none";
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+    }
 };
 //hide the image box and buttons when loading the page
 window.onload = function () {
