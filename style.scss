@@ -1,9 +1,98 @@
+// Define variables
+$primary-color: #ff5945;
+$background-color: #222;
+$text-color: #fff;
+
+// Reset default styles
 * {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
 
-p {
-  color: red;
+// Apply styles to the body
+body {
+  background-color: $background-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Define styles for the container
+.container {
+  background: $background-color;
+  width: 80vw;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+
+  // Apply responsiveness
+  @media screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+// Define styles for the image section
+.img {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+
+  // Apply styles to the image and canvas
+  img,
+  canvas {
+    max-width: 45vw;
+    max-height: 60vh;
+  }
+}
+
+// Define styles for the upload section
+.upload input {
+  display: none;
+}
+
+.upload label {
+  color: $text-color;
+  padding: 8px 20px;
+  border: 1.5px $primary-color solid;
+  border-radius: 5px;
+  cursor: pointer;
+  background: $primary-color;
+}
+
+// Define styles for the filters section
+.filters {
+  ul,
+  ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  ul li label {
+    color: $text-color;
+  }
+
+  ul li input {
+    accent-color: $primary-color;
+  }
+
+  ul li:last-child {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  ul li a,
+  span {
+    color: $text-color;
+    padding: 10px 20px;
+    background: $primary-color;
+    cursor: pointer;
+    border-radius: 5px;
+  }
 }

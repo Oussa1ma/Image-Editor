@@ -2,12 +2,88 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Editor</title>
     <link rel="stylesheet" href="style.css" />
+    <title>Image Editor</title>
   </head>
   <body>
-    <p>Hi</p>
+    <div class="container">
+      <div class="img">
+        <div class="img-box">
+          <img id="img" />
+          <canvas id="canvas"></canvas>
+        </div>
+        <div class="upload">
+          <label for="upload">Upload Image</label>
+          <input type="file" id="upload" />
+        </div>
+      </div>
+      <div class="filters">
+        <ul>
+          <li>
+            <label for="contrast">Contrast</label>
+            <input
+              type="range"
+              name="contrast"
+              id="contrast"
+              min="0"
+              max="200"
+              value="100"
+            />
+          </li>
+          <li>
+            <label for="brightness">Brightness</label>
+            <input
+              type="range"
+              name="brightness"
+              id="brightness"
+              min="0"
+              max="200"
+              value="100"
+            />
+          </li>
+          <li>
+            <label for="sepia">Sepia</label>
+            <input
+              type="range"
+              name="sepia"
+              id="sepia"
+              min="0"
+              max="200"
+              value="0"
+            />
+          </li>
+          <li>
+            <label for="grayscale">Grayscale</label>
+            <input
+              type="range"
+              name="grayscale"
+              id="grayscale"
+              min="0"
+              max="1"
+              step="0.1"
+              value="0"
+            />
+          </li>
+          <li>
+            <label for="blur">Blur</label>
+            <input
+              type="range"
+              name="blur"
+              id="blur"
+              min="0"
+              max="10"
+              step="0.1"
+              value="0"
+            />
+          </li>
+          <li>
+            <a download="image" id="save">Save</a>
+            <span onclick="resetValue()">Undo</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <script src="main.js"></script>
   </body>
 </html>
